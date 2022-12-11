@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>All risks</title>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css" >
+</head>
+<body>
+
+<div class="container text-center my-5">
+
+  <div class="row">
+    <div class="container offset-md-1 col-10">
+      <a href="/patient/allPatientList">Patients list</a>
+    </div>
+  </div>
+
+  <div class="container offset-md-1 col-10">
+    <div th:object="${riskRapport}" class="row">
+      <h2 th:text="${riskRapport.firstName}"></h2>
+     <h2>&nbsp;|&nbsp;</h2>
+      <h2 th:text="${riskRapport.lastName}"></h2>
+      <h2>&nbsp;|&nbsp;</h2>
+      <h2 th:text="${riskRapport.risk}"></h2>
+    </div>
+   <div class="row">
+     <table class="table table-bordered">
+        <thead>
+        <tr>
+         <th>RISK</th>
+        </tr>
+        </thead>
+       <tbody>
+        <tr th:each="riskRapports : ${riskRapport}">
+          <td style="width: 10%" th:text="${riskRapports.risk}"></td>
+        </tr>
+       </tbody>
+     </table>
+   </div>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>All terminology risk</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="riskRapports : ${riskRapport}">
+        <td style="width: 10%" th:text="${riskRapports.terminologyList}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>age</th>
+        <th>address</th>
+        <th>sexe</th>
+        <th>phoneNumber</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="riskRapports : ${riskRapport}">
+        <td style="width: 10%" th:text="${riskRapports.firstName}"></td>
+        <td style="width: 10%" th:text="${riskRapports.lastName}"></td>
+        <td style="width: 10%" th:text="${riskRapports.age}"></td>
+        <td style="width: 10%" th:text="${riskRapports.address}"></td>
+        <td style="width: 10%" th:text="${riskRapports.sexe}"></td>
+        <td style="width: 10%" th:text="${riskRapports.phoneNumber}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>
